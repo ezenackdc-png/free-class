@@ -1229,6 +1229,7 @@ button:disabled{cursor:default;opacity:.55}
 .ev-card dl{background:color-mix(in srgb,var(--surface,#fff) 60%,transparent)}
 .ev-kicker{color:var(--mute)!important}
 .plan-a .iqt{display:none!important}
+.plan-a #basics>h2,.plan-a #basics>.sub{display:none!important}
 .iqb-rels{grid-column:2;grid-row:1 / span 2;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:4px 0;padding:6px 4px 6px 14px;border-left:1.5px dashed color-mix(in srgb,var(--course-ink) 35%,transparent)}
 .iqb-rels-h{font-size:11px;font-weight:700;color:var(--mute);margin-bottom:2px}
 .iqb-solo{all:unset;cursor:pointer;display:grid;place-items:center}
@@ -2206,7 +2207,7 @@ function fcStat(c){let parts=0,ready=0,sec=0;c.groups.forEach(g=>g.rows.forEach(
 function fcDur(sec){const m=Math.round(sec/60);return m>=60?`${Math.floor(m/60)}시간 ${m%60}분`:`${m}분`}
 const FREE_ORDER=FREE_TRACKS.flatMap(t=>t.subs.flatMap(sb=>sb.ids));
 let iqTab=null;
-document.addEventListener('click',e=>{const t=e.target.closest('.tab[data-v="lecture"]');if(!t)return;setTimeout(()=>{const v=document.getElementById('vCourses');if(v&&!v.hidden){const th=(document.querySelector('.tabs')?.offsetHeight||56);const h=document.querySelector('#basics h2');if(h)window.scrollTo({top:h.getBoundingClientRect().top+scrollY-th-28,behavior:'smooth'})}},30)});
+document.addEventListener('click',e=>{const t=e.target.closest('.tab[data-v="lecture"]');if(!t)return;setTimeout(()=>{const v=document.getElementById('vCourses');if(v&&!v.hidden){const th=(document.querySelector('.tabs')?.offsetHeight||56);let h=document.querySelector('#basics h2');if(h&&!h.offsetParent)h=document.getElementById('bList');if(h)window.scrollTo({top:h.getBoundingClientRect().top+scrollY-th-28,behavior:'smooth'})}},30)});
 const IQ_BOX={'figma':'ui','figma-comp':'ui'};
 const IQ_SHORT={'figma':'피그마 기초','figma-comp':'컴포넌트·스타일 가이드'};
 const IQ_TAG={};FREE_TRACKS.forEach(t=>t.subs.forEach(sb=>sb.ids.forEach(id=>IQ_TAG[id]=sb.k||'')));
