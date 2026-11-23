@@ -1228,6 +1228,22 @@ button:disabled{cursor:default;opacity:.55}
 .ev-card .ev-date{filter:none;opacity:1;color:var(--mute);background:var(--surface,#fff);border:1px solid var(--line)}
 .ev-card dl{background:color-mix(in srgb,var(--surface,#fff) 60%,transparent)}
 .ev-kicker{color:var(--mute)!important}
+.plan-a .iqt{display:none!important}
+.iqb-rels{grid-column:2;grid-row:1 / span 2;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:4px 0;padding:6px 4px 6px 14px;border-left:1.5px dashed color-mix(in srgb,var(--course-ink) 35%,transparent)}
+.iqb-rels-h{font-size:11px;font-weight:700;color:var(--mute);margin-bottom:2px}
+.iqb-solo{all:unset;cursor:pointer;display:grid;place-items:center}
+.iqb-solo .iqb-pl{width:18px;height:18px;transition:transform .15s}
+.iqb-solo .iqb-pl i{border-left-width:6px;border-top-width:4px;border-bottom-width:4px;margin-left:1.5px}
+.iqb-solo:hover .iqb-pl{transform:scale(1.1)}
+.iqb-links{display:flex;flex-direction:column;align-items:center;gap:4px}
+.iqb-rels{gap:8px!important}
+.iqb-rel2{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.iqb-rel2 .iqb-pl{width:18px;height:18px}
+.iqb-rel2 .iqb-pl i{border-left-width:6px;border-top-width:4px;border-bottom-width:4px;margin-left:1.5px}
+.iqb-rel2 b{font-size:12px;font-weight:800;color:var(--course-ink);line-height:1.35;word-break:keep-all;letter-spacing:-.03em}
+.iqb-rel2:hover b,.iqb-rel2:focus-visible b{text-decoration:underline}
+.iqb-rel2:hover .iqb-pl{transform:scale(1.1)}
+@media(max-width:600px){.iqb-links{flex-direction:row;flex-wrap:wrap;gap:4px 12px;align-items:center}.iqb-rels{flex-direction:row!important;flex-wrap:wrap;align-items:center!important;}.iqb-rels{grid-column:1;grid-row:3;flex-direction:column;align-items:flex-start;justify-content:flex-start;border-left:0;border-top:1.5px dashed color-mix(in srgb,var(--course-ink) 35%,transparent);margin:4px 0 0;padding:10px 2px 2px;gap:8px}.iqb-rels-h{margin:0}.iqb-rel2{flex-direction:row}}
 .iq-ex{align-self:center;flex-shrink:0;font-size:11px;font-weight:800;color:#b45309;background:#fef3c7;border:1px dashed #f59e0b;border-radius:999px;padding:3px 10px;letter-spacing:-.01em}
 </style>
 </head>
@@ -1245,7 +1261,8 @@ button:disabled{cursor:default;opacity:.55}
 
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" data-v="member" aria-selected="true"><span class="tab-t">취업의 기술</span><small class="tab-s">이력서·면접 노하우 읽기</small></button>
-    <button class="tab" role="tab" data-v="lecture" aria-selected="false"><span class="tab-t">무료 클래스</span><small class="tab-s">포트폴리오·면접 필수 직무 기초 강의</small></button>
+    <button class="tab" role="tab" data-v="lecture" data-plan="A" aria-selected="false"><span class="tab-t">무료 클래스 (A안)</span><small class="tab-s">포트폴리오·면접 필수 직무 기초 강의</small></button>
+    <button class="tab" role="tab" data-v="lecture" data-plan="B" aria-selected="false"><span class="tab-t">무료 클래스 (B안)</span><small class="tab-s">포트폴리오·면접 필수 직무 기초 강의</small></button>
   </div>
 
   <section class="sec" id="vMember">
@@ -2171,11 +2188,11 @@ const INTERVIEW_QS=[
  {course:'ux-laws',real:1,feat:1,src:'B사 · UIUX 직무 대면 면접',q:'좋은 UX란 무엇이라고 생각하나요?'},
  {course:'ux-laws',real:1,q:'비전공자인데 디자인 감각은 어떻게 기르나요?'},
  {course:'figma',real:1,feat:1,src:'A사 · UIUX 직무 화상 면접',q:'본인 스킬을 상·중·하로 표현해 보세요.'},
- {course:'figma',todo:1,q:'오토 레이아웃을 써 본 적 있나요?'},
  {course:'figma-comp',todo:1,feat:1,src:'UIUX 직무 · 자주 나오는 질문',q:'포트폴리오 화면은 어떤 툴로 어떻게 만들었나요?'},
  {course:'figma-comp',todo:1,q:'컴포넌트로 디자인을 관리해 본 적 있나요?'},
- {course:'python',todo:1,feat:1,src:'사무·마케팅 직무 · 코딩 기초 질문',q:'ChatGPT가 짜 준 파이썬 코드, 직접 읽고 고칠 수 있나요?'},
- {course:'python',todo:1,q:'엑셀 숫자가 계산되지 않는다면, 원인이 무엇일까요?'}];
+ {course:'python',todo:1,feat:1,src:'사무·마케팅 직무 · 코딩 기초 질문',q:'파이썬이 실무에서 많이 쓰이는 이유는?'},
+ {course:'python',todo:1,q:'ChatGPT가 짠 코드, 직접 고칠 수 있나요?'},
+ {course:'python',todo:1,q:'반복 업무를 자동화해 본 적 있나요?'}];
 function fcIllu(k){
  if(k==='app')return `<div class="il il-app"><i class="l1"></i><i class="l2"></i><div class="cal">${Array.from({length:15},(_,i)=>`<b class="${[1,3,7,11].includes(i)?'on':''}"></b>`).join('')}</div><i class="btn"></i></div>`;
  if(k==='ba')return `<div class="il il-ba"><div class="scr bad"><i></i><i></i><i></i><i></i><i></i></div><span class="arr">→</span><div class="scr good"><i class="h"></i><i></i><i class="kcta"></i></div></div>`;
@@ -2190,6 +2207,8 @@ function fcDur(sec){const m=Math.round(sec/60);return m>=60?`${Math.floor(m/60)}
 const FREE_ORDER=FREE_TRACKS.flatMap(t=>t.subs.flatMap(sb=>sb.ids));
 let iqTab=null;
 document.addEventListener('click',e=>{const t=e.target.closest('.tab[data-v="lecture"]');if(!t)return;setTimeout(()=>{const v=document.getElementById('vCourses');if(v&&!v.hidden){const th=(document.querySelector('.tabs')?.offsetHeight||56);const h=document.querySelector('#basics h2');if(h)window.scrollTo({top:h.getBoundingClientRect().top+scrollY-th-28,behavior:'smooth'})}},30)});
+const IQ_BOX={'figma':'ui','figma-comp':'ui'};
+const IQ_SHORT={'figma':'피그마 기초','figma-comp':'컴포넌트·스타일 가이드'};
 const IQ_TAG={};FREE_TRACKS.forEach(t=>t.subs.forEach(sb=>sb.ids.forEach(id=>IQ_TAG[id]=sb.k||'')));
 function syncFreeBadge(){const b=document.getElementById('freeBadge');if(b)b.textContent='모두 무료'}
 const IQ_TAB_NAME={'ux-double':'UX 프로세스','ux-laws':'UX 법칙','figma':'피그마 기초','figma-comp':'피그마 컴포넌트','python':'파이썬·데이터'};
@@ -2208,7 +2227,7 @@ function renderBasics(){
  const tracks=FREE_TRACKS.map(tr=>{const subs=tr.subs.map(sb=>({...sb,list:sb.ids.map(id=>CLASS_DATA.find(c=>c.id===id)).filter(Boolean)})).filter(sb=>sb.list.length);if(!subs.length)return'';
   return `<section class="ft-track" aria-label="${tr.t}"><div class="ft-th"><span class="ft-kicker">${tr.kicker}</span><b>${tr.t}</b><small>${tr.d}</small></div>${subs.map(sb=>`<div class="ft-sub"><div class="ft-steps">${sb.list.map(c=>card(c,++step)).join('')}</div></div>`).join('')}</section>`}).join('');
  const next=[].map(x=>`<div class="ft-sample ${x.color}" aria-disabled="true" aria-label="${x.t} (화면 구성용 예시, 미확정)"><div class="fsm-art"><strong aria-hidden="true">${x.icon}</strong></div><div class="fsm-body"><small>${x.eyebrow} · ${x.when}</small><b>${x.t}</b><p>${x.d}</p></div><span class="fsm-tag">예시 · 미확정</span></div>`).join('');
- $('bList').innerHTML=`${(()=>{const ids=FREE_ORDER.filter(id=>INTERVIEW_QS.some(x=>x.course===id));if(!ids.length)return'';if(!ids.includes(iqTab))iqTab=ids[0];const q1=(x)=>x.q;return `<section class="iqt" aria-label="강의별 면접 질문"><div class="iqt-head ft-th"><span class="ft-kicker">INTERVIEW</span><b>면접 질문, 직무 기초 강의로 준비하세요</b><span class="iq-ex">구성 예시</span><small>이렇게 구성하면 어떨까요? 질문은 예시예요.</small><span class="iq-role"><button type="button" class="iq-jump" data-jump=".career-series.interview"><em>답변 스킬</em> 면접의 달인 ↑</button><i aria-hidden="true">·</i><button type="button" class="iq-jump" data-jump=".ft-list-h"><em>직무 지식</em> 강의 듣기 ↓</button></span></div><div class="iqb-grid">${ids.map(id=>{const c=CLASS_DATA.find(k=>k.id===id),qs=INTERVIEW_QS.filter(x=>x.course===id),f=qs.find(x=>x.feat)||qs[0],rest=qs.filter(x=>x!==f);return `<div class="iqb ${c.color}"><div class="iqb-top">${IQ_TAG[id]?`<span class="iqb-tag">${IQ_TAG[id]}</span>`:''}<b>${f.src||IQ_TAB_NAME[id]||c.t}</b></div><ul class="iqb-qs">${[f,...rest].map(x=>`<li>${q1(x)}</li>`).join('')}</ul><button type="button" class="iqb-how iqb-rel" data-course="${id}" aria-label="${c.t} 강의 듣고 준비하기"><span>강의 듣고 준비하세요</span><span class="iqb-pl" aria-hidden="true"><i></i></span><small class="iqb-cls">CLASS ${String(FREE_ORDER.indexOf(id)+1).padStart(2,'0')}</small><p>${c.t}</p></button></div>`}).join('')}</div></section>`})()}<div class="ft-list-h"><h3>무료 클래스 강의 목록</h3><p>UX·UI 디자인부터 데이터까지, 실무에서 쓰는 개념과 도구를 직무별로 익혀요.</p></div><div class="ft-tracks">${tracks}</div>`+`<section class="ev" aria-label="One Day 취업 특강"><div class="ev-head"><span class="ft-kicker ev-kicker">EVENT</span><b>One Day 취업 특강</b><span class="iq-ex">구성 예시</span><small>하루에 끝내는 취업 실전 특강 · 일정과 내용은 확정 전이에요.</small></div><div class="ev-grid">${ONEDAY_EVENTS.map(e=>`<article class="ev-card" aria-disabled="true"><div class="ev-top"><span class="ev-od">ONE DAY<em>${e.no}</em></span><span class="ev-date">예시 · 미확정</span></div><h4>${e.t}</h4><p>${e.d}</p><dl><div><dt>대상</dt><dd>${e.who}</dd></div><div><dt>연결</dt><dd>${e.link}</dd></div></dl><button type="button" class="ev-btn" disabled>신청 오픈 예정</button></article>`).join('')}</div></section>`+(next?`<div class="ft-next"><div class="ft-next-head"><span class="ft-kicker">COMING SOON</span><b>다음 무료 클래스 자리</b><small>화면 구성용 예시입니다 · 과정명·일정 미확정</small></div><div class="ft-samples">${next}</div></div>`:'');
+ $('bList').innerHTML=`${(()=>{const ids=FREE_ORDER.filter(id=>INTERVIEW_QS.some(x=>x.course===id));if(!ids.length)return'';if(!ids.includes(iqTab))iqTab=ids[0];const q1=(x)=>x.q;return `<section class="iqt" aria-label="강의별 면접 질문"><div class="iqt-head ft-th"><span class="ft-kicker">INTERVIEW</span><b>면접 질문, 직무 기초 강의로 준비하세요</b><span class="iq-ex">구성 예시</span><span class="iq-role"><button type="button" class="iq-jump" data-jump=".career-series.interview"><em>답변 스킬</em> 면접의 달인 ↑</button><i aria-hidden="true">·</i><button type="button" class="iq-jump" data-jump=".ft-list-h"><em>직무 지식</em> 강의 듣기 ↓</button></span></div><div class="iqb-grid">${(()=>{const bx=[];ids.forEach(id=>{const k=IQ_BOX[id]||id;let b=bx.find(x=>x.k===k);if(!b)bx.push(b={k,ids:[]});b.ids.push(id)});return bx.map(b=>{const cs=b.ids.map(id=>CLASS_DATA.find(k=>k.id===id)),c=cs[0],qs=b.ids.flatMap(id=>{const a=INTERVIEW_QS.filter(x=>x.course===id),f=a.find(x=>x.feat)||a[0];return[f,...a.filter(x=>x!==f)]}),f=qs[0];const head=`<div class="iqb-top">${IQ_TAG[c.id]?`<span class="iqb-tag">${IQ_TAG[c.id]}</span>`:''}<b>${f.src||IQ_TAB_NAME[c.id]||c.t}</b></div><ul class="iqb-qs">${qs.map(x=>`<li>${x.q}</li>`).join('')}</ul>`;if(cs.length===1)return `<div class="iqb ${c.color}">${head}<button type="button" class="iqb-how iqb-rel" data-course="${c.id}" aria-label="${c.t} 강의 듣고 준비하기"><span>강의 듣고 준비하세요</span><span class="iqb-pl" aria-hidden="true"><i></i></span><small class="iqb-cls">CLASS ${String(FREE_ORDER.indexOf(c.id)+1).padStart(2,'0')}</small><p>${c.t}</p></button></div>`;return `<div class="iqb iqb-multi ${c.color}">${head}<div class="iqb-rels"><span class="iqb-rels-h">강의 듣고 준비하세요</span><button type="button" class="iqb-solo" data-course="${c.id}" aria-label="${c.t} 강의 듣기"><span class="iqb-pl" aria-hidden="true"><i></i></span></button><span class="iqb-links">${cs.map(k=>`<button type="button" class="iqb-rel2" data-course="${k.id}" aria-label="${k.t} 강의 듣기"><b>${IQ_SHORT[k.id]||k.t}</b></button>`).join('')}</span></div></div>`}).join('')})()}</div></section>`})()}<div class="ft-list-h"><h3>직무별로 골라 듣는 기초 강의</h3><p>UX·UI 디자인부터 데이터까지, 실무에서 쓰는 개념과 도구를 직무별로 익혀요.</p></div><div class="ft-tracks">${tracks}</div>`+`<section class="ev" aria-label="One Day 취업 특강"><div class="ev-head"><span class="ft-kicker ev-kicker">EVENT</span><b>One Day 취업 특강</b><span class="iq-ex">구성 예시</span><small>하루에 끝내는 취업 실전 특강 · 일정과 내용은 확정 전이에요.</small></div><div class="ev-grid">${ONEDAY_EVENTS.map(e=>`<article class="ev-card" aria-disabled="true"><div class="ev-top"><span class="ev-od">ONE DAY<em>${e.no}</em></span><span class="ev-date">예시 · 미확정</span></div><h4>${e.t}</h4><p>${e.d}</p><dl><div><dt>대상</dt><dd>${e.who}</dd></div><div><dt>연결</dt><dd>${e.link}</dd></div></dl><button type="button" class="ev-btn" disabled>신청 오픈 예정</button></article>`).join('')}</div></section>`+(next?`<div class="ft-next"><div class="ft-next-head"><span class="ft-kicker">COMING SOON</span><b>다음 무료 클래스 자리</b><small>화면 구성용 예시입니다 · 과정명·일정 미확정</small></div><div class="ft-samples">${next}</div></div>`:'');
 }
 var curCourse=null;
 function markCourseTile(){document.querySelectorAll('.course-tile').forEach(t=>t.setAttribute('aria-pressed',String(t.dataset.course===curCourse)));placeNotch()}
@@ -2396,7 +2415,10 @@ function scrollToSection(v){
  el.scrollIntoView({behavior:'smooth',block:'start'});
  setActiveTab(v);
 }
-function setActiveTab(v){document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.v===v)))}
+let FREE_PLAN='A';document.documentElement.classList.add('plan-a');
+function setFreePlan(p){FREE_PLAN=p;document.documentElement.classList.toggle('plan-a',p==='A');setActiveTab(document.querySelector('.tab[aria-selected="true"]')?.dataset.v||'lecture')}
+document.addEventListener('click',e=>{const t=e.target.closest('.tab[data-plan]');if(t)setFreePlan(t.dataset.plan)},true);
+function setActiveTab(v){document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.v===v&&(!t.dataset.plan||t.dataset.plan===FREE_PLAN))))}
 function syncTabs(){
  const bar=document.querySelector('.tabs').getBoundingClientRect().bottom;
  const top=classArea().getBoundingClientRect().top;
