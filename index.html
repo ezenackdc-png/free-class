@@ -1304,17 +1304,56 @@ button:disabled{cursor:default;opacity:.55}
 @media(max-width:600px){.iqb-links{flex-direction:row;flex-wrap:wrap;gap:4px 12px;align-items:center}.iqb-rels{flex-direction:row!important;flex-wrap:wrap;align-items:center!important;}.iqb-rels{grid-column:1;grid-row:3;flex-direction:column;align-items:flex-start;justify-content:flex-start;border-left:0;border-top:1.5px dashed color-mix(in srgb,var(--course-ink) 35%,transparent);margin:4px 0 0;padding:10px 2px 2px;gap:8px}.iqb-rels-h{margin:0}.iqb-rel2{flex-direction:row}}
 .iq-ex{align-self:center;flex-shrink:0;font-size:11px;font-weight:800;color:#b45309;background:#fef3c7;border:1px dashed #f59e0b;border-radius:999px;padding:3px 10px;letter-spacing:-.01em}
 </style>
+<style id="hero2-css">
+.wrap{position:relative}
+.wrap>.top{position:absolute;top:0;right:20px;padding:24px 0 0!important;z-index:5}
+.wrap>.hero{padding-top:28px!important}
+@media(max-width:600px){#me{font-size:0}#me button{font-size:13px}.wrap>.top{right:16px;padding-top:20px!important}.wrap>.hero{padding-top:24px!important}}
+.hero-eye{display:inline-flex;align-items:center;gap:6px;margin:0 0 10px;padding:4px 12px 4px 10px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,transparent);color:var(--accent);font-size:12.5px;font-weight:800;letter-spacing:-.01em}
+.hero-eye::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero2{display:block;margin:18px 0 22px;padding:0;border:0;background:none}
+.hr-eye{display:block;font-size:11.5px;font-weight:900;letter-spacing:.12em;color:var(--accent)}
+.hero2 h1{margin:6px 0 6px;font-size:34px;line-height:1.15;font-weight:900;letter-spacing:-.05em;color:var(--ink)}
+.hero2 h1 em{font-style:normal;color:var(--accent)}
+.hr-sub{margin:0;font-size:14px;line-height:1.6;color:var(--mute);word-break:keep-all}
+.hero2 .hr-note{margin:12px 0 0}
+.hr-sub b{color:var(--ink);font-weight:800}
+.hr-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:14px}
+.hr-cta button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:12px;font-size:14px;font-weight:800}
+.hr-cta .hr-kakao{background:#fee500;color:#191919}
+.hr-kakao:hover{filter:brightness(.97)}
+.hr-cta .hr-ghost{background:var(--surface,#fff);color:var(--ink);border:1px solid var(--line)}
+.hr-cta .hr-ghost:hover{border-color:var(--ink)}
+.hr-cta small{font-size:12px;font-weight:700;color:var(--mute)}
+.hr-r{display:flex;flex-direction:column;gap:6px}
+.hr-r button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;padding:9px 14px;border-radius:12px;background:var(--surface,#fff);border:1px solid var(--line);transition:border-color .15s,transform .15s}
+.hr-r button:hover{border-color:var(--accent);transform:translateX(2px)}
+.hr-r small{grid-row:1/3;align-self:center;font-size:10px;font-weight:900;letter-spacing:.06em;color:var(--accent);white-space:nowrap;width:96px}
+.hr-r b{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.hr-r span{font-size:12px;color:var(--mute)}
+@media(max-width:900px){.hero2{padding:0}.hero2 h1{font-size:27px}.hr-r{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.hr-r button{display:flex;flex-direction:column;gap:2px;padding:10px}.hr-r small{width:auto}.hr-r span{display:none}}
+@media(max-width:520px){.hr-r{grid-template-columns:1fr;gap:5px}.hr-r button{display:grid;grid-template-columns:96px 1fr;padding:9px 12px}.hr-r small{grid-row:auto}.hr-cta button{flex:1;justify-content:center;padding:10px 8px;font-size:13.5px;white-space:nowrap}.hr-cta small{flex-basis:100%;text-align:center}}
+#loginTop{background:#fee500!important;color:#191919!important;border-color:#fee500!important;font-weight:800}
+#loginTop:hover{filter:brightness(.97)}
+</style>
+<script id="hero2-js">
+document.addEventListener('click',e=>{
+ const l=e.target.closest('[data-hero-login]');if(l){const b=document.getElementById('loginTop');if(b)b.click();return}
+ const t=e.target.closest('[data-hero-tab]');if(t){const tab=document.querySelector(t.dataset.heroTab==='lecture'?'.tab[data-plan="B"]':'.tab[data-v="member"]');if(tab)tab.click()}
+});
+</script>
 </head>
 <body>
 <div class="wrap">
   <div class="top">
-    <div class="logo">이젠에듀<small>무료 취업 콘텐츠</small></div>
-    <div class="me" id="me"><button class="btn ghost sm" id="loginTop">카카오로 시작하기</button></div>
+    
+    <div class="me" id="me"><button class="btn ghost sm" id="loginTop">카카오로 1초 시작하기</button></div>
   </div>
 
   <header class="hero">
-    <h1>기초 수업부터 첫 취업 준비까지</h1>
-    <p class="lead">이력서·면접 노하우는 <b>취업의 기술</b>에서, 포트폴리오와 면접에 필요한 직무 기초는 <b>무료 클래스</b>에서 준비하세요.</p><p class="hero-note"><span class="hero-k" aria-hidden="true"></span>카카오 로그인 한 번이면 전부 무료로 볼 수 있어요</p>
+    <span class="hero-eye">취준생을 위한 무료 콘텐츠</span>
+    <h1>첫 취업, 뭐부터 준비하지?</h1>
+    <p class="lead">이력서·면접 노하우는 <b>취업의 기술</b>에서, 포트폴리오와 인터뷰에 필요한 직무 기초는 <b>무료 클래스</b>에서 준비하세요.</p><p class="hero-note"><span class="hero-k" aria-hidden="true"></span>카카오 로그인 한 번이면 전부 무료로 볼 수 있어요</p>
   </header>
 
   <div class="tabs" role="tablist">
@@ -2093,7 +2132,7 @@ document.addEventListener('click',e=>{
 function cpSyncGuest(){const b=document.getElementById('cpListbox');if(b)b.classList.toggle('is-guest',!user)}
 function renderMe(){
  renderMember();cpSyncGuest();
- $("me").innerHTML=user?('카카오 계정으로 로그인했어요 <button class="btn ghost sm" id="logout">로그아웃</button>'):'<button class="btn ghost sm" id="loginTop">카카오로 시작하기</button>';
+ $("me").innerHTML=user?('카카오 계정으로 로그인했어요 <button class="btn ghost sm" id="logout">로그아웃</button>'):'<button class="btn ghost sm" id="loginTop">카카오로 1초 시작하기</button>';
 }
 function openLogin(why){
  pending=why;
@@ -2172,6 +2211,8 @@ CLASS_DATA[1].groups=CRS.map((c,j)=>({title:`0${j+1} · ${c.t}`,note:`${c.c.leng
 // 원본 파트의 제목, 시간, Kollus 주소는 변경하지 않습니다.
 // 파이썬 1챕터 목차: 영상이 올라가면 각 파트의 url과 시간('m:ss')을 채웁니다.
 {const PY_URLS=['https://v.kr.kollus.com/rG7Ivn7S','https://v.kr.kollus.com/VLm6vn8M','https://v.kr.kollus.com/Ckg9vn7X','https://v.kr.kollus.com/cFkAvn7I','https://v.kr.kollus.com/u4UJvn7Q','https://v.kr.kollus.com/u4UJvn7Q','https://v.kr.kollus.com/NX3bvn9X','https://v.kr.kollus.com/IV9Tvndg','https://v.kr.kollus.com/PchsvnJO','https://v.kr.kollus.com/zvCHvnJC','https://v.kr.kollus.com/zAxUvnJR'];
+// 파이썬 파트별 재생시간 ('m:ss'). 채우면 목록·카드에 시간과 총 분량이 자동으로 표시됩니다.
+const PY_DUR=['','','','','','','','','','',''];
 const PY=CLASS_DATA.find(c=>c.id==='python');if(PY){const P1=[
  ['파이썬 언어의 특징','파이썬이 왜 첫 언어로 많이 쓰이는지, 쉬운 문법과 넓은 활용 분야를 살펴봐요.'],
  ['파이썬 설치 및 실행','파이썬을 설치하고 첫 코드를 직접 실행해 결과를 확인해요.'],
@@ -2184,8 +2225,10 @@ const PY=CLASS_DATA.find(c=>c.id==='python');if(PY){const P1=[
  ['산술 연산자와 형 변환','+·-·*·/·//·%·** 산술 연산자를 써 보고, int()·float()·str()로 자료형을 바꿔 봐요.'],
  ['대입·비교·논리 연산자','+=처럼 줄여 쓰는 대입 연산자와, ==·>· and·or·not으로 참과 거짓을 판단하는 방법을 익혀요.'],
  ['조건문 if·elif·else','조건에 따라 다른 코드가 실행되도록 if·elif·else 조건문을 직접 작성해 봐요.']];
- PY.groups=[{title:'01 · 파이썬 첫걸음: 설치부터 조건문까지',note:'11파트',chapter:true,rows:P1.map((r,i)=>[r[0],r[1],'',{number:i+1,url:PY_URLS[i]||null}])}];
- PY.meta='1챕터 · 11파트';}}
+ PY.groups=[{title:'01 · 파이썬 첫걸음: 설치부터 조건문까지',note:'11파트',chapter:true,rows:P1.map((r,i)=>[r[0],r[1],PY_DUR[i]||'',{number:i+1,url:PY_URLS[i]||null}])}];
+ const pySec=PY_DUR.reduce((a,d)=>{const m=/^(\d+):(\d{2})$/.exec(d||'');return m?a+(+m[1])*60+(+m[2]):a},0),pyAll=PY_DUR.every(d=>/^\d+:\d{2}$/.test(d||''));
+ PY.meta=pyAll?`11파트 · 약 ${Math.round(pySec/60)}분`:'1챕터 · 11파트';
+ if(pyAll)PY.groups[0].note=`11파트 · ${Math.floor(pySec/60)}:${String(pySec%60).padStart(2,'0')}`;}}
 const ORIGINAL_UX=CLASS_DATA.shift();
 const UX_ONE={...ORIGINAL_UX,id:'ux-double',t:'UX 프로덕트 디자인과 더블 다이아몬드',icon:'UX',eyebrow:'UX DESIGN · CLASS 01',desc:'사용자의 문제를 발견하고, 더블 다이아몬드 4단계와 ChatGPT 실습으로 서비스 아이디어를 구체화해요.',meta:'10파트 · 약 38분',status:'UX 입문 · 문제 해결 프로세스',summary:'프로덕트와 멘탈 모델을 이해하고 더블 다이아몬드의 발견·정의·개발·전달을 사례와 실습으로 익힙니다.',audience:['처음 UX 디자인을 배우는 분','더블 다이아몬드를 실제 사례로 이해하고 싶은 분','ChatGPT로 서비스 아이디어를 구체화해 보고 싶은 분'],outcomes:['프로덕트와 사용자의 멘탈 모델을 설명해요.','더블 다이아몬드의 4단계를 이해해요.','ChatGPT로 약속 조율 앱 아이디어를 정리해요.'],groups:[ORIGINAL_UX.groups[0]],nextId:'ux-laws',nextTitle:'UX·UI 기본 원리와 UX 법칙'};
 const UX_TWO={...ORIGINAL_UX,id:'ux-laws',t:'UX·UI 기본 원리와 UX 법칙',icon:'UX',eyebrow:'UX DESIGN · CLASS 02',desc:'UX와 UI의 차이를 익히고, 피츠·제이콥·근접성·힉의 법칙을 화면 개선 사례에 적용해요.',meta:'9파트 · 약 34분',status:'UX 입문 · UX 법칙과 실습',summary:'UX·UI·프로덕트 디자인의 역할부터 자주 쓰이는 UX 법칙까지 학습하고, ChatGPT로 UI 개선안을 검토합니다.',audience:['UX·UI의 차이가 궁금한 분','UX 법칙이 실제 화면에 어떻게 적용되는지 배우고 싶은 분','디자인 개선의 근거를 익히고 싶은 분'],outcomes:['UX·UI·프로덕트 디자인의 역할을 구분해요.','피츠·제이콥·근접성·힉의 법칙을 이해해요.','UX 법칙에 근거한 화면 개선 방향을 생각해요.'],groups:[ORIGINAL_UX.groups[1]],nextId:'figma',nextTitle:'피그마 기초'};
@@ -2528,7 +2571,7 @@ window.addEventListener('load',()=>{if(location.hash==='#member')setTimeout(()=>
 .ns-links i{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-style:normal;font-size:18px;color:color-mix(in srgb,var(--surface) 70%,transparent);transition:transform .15s}
 .ns-links a:hover i{transform:translate(2px,calc(-50% - 2px))}
 @media(max-width:760px){.ns-links{grid-template-columns:1fr;padding-top:16px}}
-section.next-step{margin-top:28px!important;margin-bottom:48px!important;padding:20px 26px!important;gap:6px 24px!important}
+section.next-step{margin-top:28px!important;margin-bottom:12px!important;padding:20px 26px!important;gap:6px 24px!important}
 section.next-step h3{margin:4px 0 3px!important;font-size:19px!important}
 section.next-step>div>p{font-size:13px!important}
 .next-step-btns a{padding:10px 16px!important;font-size:13.5px!important}
@@ -2538,6 +2581,12 @@ section.next-step>div>p{font-size:13px!important}
 .ns-links b{font-size:14px!important}
 .ns-links span{font-size:12px!important}
 @media(max-width:760px){section.next-step{padding:20px 18px!important}}
+.kch{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 48px;padding:18px 24px;border-radius:18px;background:var(--surface,#fff);border:1px solid var(--line)}
+.kch b{display:block;font-size:16px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.kch p{margin:4px 0 0;font-size:13px;color:var(--mute);word-break:keep-all}
+.kch-btn{flex-shrink:0;display:inline-flex;align-items:center;padding:11px 18px;border-radius:12px;background:#fee500;color:#191919;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
+.kch-btn:hover{filter:brightness(.97)}
+@media(max-width:600px){.kch{flex-direction:column;align-items:stretch;padding:18px}.kch-btn{justify-content:center}}
 
 .next-step-btns a{display:inline-flex;align-items:center;gap:6px;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
 .next-step-btns .p{background:var(--surface);color:var(--ink)}
@@ -2557,6 +2606,12 @@ section.next-step>div>p{font-size:13px!important}
   const ns=document.createElement('section');ns.className='next-step';ns.setAttribute('aria-label','다음 단계');
   ns.innerHTML='<div><span class="ft-kicker">NEXT STEP</span><h3>기초는 무료 클래스로, 포트폴리오와 취업은 정규과정에서</h3><p>이젠아카데미 정규과정에서 현업 기준의 실무 프로젝트로 포트폴리오를 완성하고, 이력서·모의면접까지 함께 준비해요.</p></div><div class="next-step-btns"><a class="p" href="https://www.ezenac.co.kr/ezen/counsel/counsel_create.asp" target="_blank" rel="noopener">정규과정 상담받기 →</a></div><div class="ns-links"><a href="https://www.ezenac.co.kr/ezen/portfolio/portfolio_list.asp" target="_blank" rel="noopener"><small>PORTFOLIO</small><b>수강생 포트폴리오</b><span>정규과정에서 완성한 실제 작품을 둘러보세요.</span><i aria-hidden="true">↗</i></a><a href="https://www.ezenac.co.kr/ezen/community/photostory_view.asp?pg=1&amp;idx=113" target="_blank" rel="noopener"><small>CAREER FOCUS</small><b>카티아 자동차 설계 수료생 취업 성공 인터뷰</b><span>공대생 선배가 서류와 면접을 어떻게 준비했는지 확인해 보세요.</span><i aria-hidden="true">↗</i></a></div>';
   vc.appendChild(ns);
+  // 카카오채널 배너 (채널 주소가 정해지면 KAKAO_CHANNEL_URL에 넣으세요)
+  const KAKAO_CHANNEL_URL='';
+  const kc=document.createElement('section');kc.className='kch';kc.setAttribute('aria-label','카카오채널 소식 받기');
+  kc.innerHTML='<div><b>새로운 취업 콘텐츠와 특강 소식</b><p>카카오채널 추가는 로그인과 별개예요. 원할 때만 소식을 받아 보세요.</p></div><a class="kch-btn" '+(KAKAO_CHANNEL_URL?'href="'+KAKAO_CHANNEL_URL+'" target="_blank" rel="noopener"':'href="#" data-todo="카카오채널 주소"')+'>카카오채널 안내 →</a>';
+  vc.appendChild(kc);
+  kc.querySelector('[data-todo]')?.addEventListener('click',e=>e.preventDefault());
  }
  document.addEventListener('click',e=>{const t=e.target.closest('[data-jump]');if(!t)return;const el=document.querySelector(t.dataset.jump);if(!el)return;e.preventDefault();const th=(document.querySelector('.tabs')?.offsetHeight||56);window.scrollTo({top:el.getBoundingClientRect().top+scrollY-th-24,behavior:'smooth'})});
 })();
