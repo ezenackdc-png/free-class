@@ -1207,6 +1207,45 @@ button:disabled{cursor:default;opacity:.55}
 .ev-head b{font-size:17px;letter-spacing:-.04em;color:var(--ink)}
 .ev-head small{font-size:12.5px;color:var(--mute)}
 .ev-kicker{color:#e0592b!important}
+.evf{display:grid;grid-template-columns:150px minmax(0,1fr) 280px;background:var(--surface,#fff);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px rgba(15,23,42,.05)}
+.evf-date{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:24px 12px;background:linear-gradient(160deg,#ff7a45,#f2542d);color:#fff;text-align:center}
+.evf-date small{font-size:11px;font-weight:800;letter-spacing:.12em;opacity:.85}
+.evf-date b{font-size:34px;font-weight:900;letter-spacing:-.04em;line-height:1.05}
+.evf-date span{font-size:13px;font-weight:700;opacity:.9}
+.evf-date em{margin-top:10px;font-style:normal;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.2)}
+.evf-body{padding:24px 26px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.evf{grid-template-columns:120px minmax(0,1fr) 300px!important}
+.evf-date{padding:14px 10px!important;gap:0!important}
+.evf-date b{font-size:26px!important}
+.evf-date span{font-size:12px!important}
+.evf-date em{margin-top:6px!important;font-size:11px!important;padding:3px 9px!important}
+.evf-body{padding:16px 22px!important;gap:5px!important;justify-content:center}
+.evf-body h4{font-size:17.5px!important;margin:0!important}
+.evf-body p{font-size:13px!important;line-height:1.55!important}
+.evf-body p.evf-co{display:block;padding:0;background:none;border:0;color:var(--ink)}
+.evf-body p.evf-co b{color:#c2410c;font-weight:900;margin-right:4px}
+.evf-info{padding:14px 20px!important;gap:6px!important;display:grid!important;align-content:center}
+.evf-info div{gap:10px!important}
+.evf-info dd{flex-direction:row!important;flex-wrap:wrap;align-items:baseline;gap:0 6px!important;font-size:13px!important}
+.evf-info dd small{font-size:11.5px}
+@media(max-width:900px){.evf{grid-template-columns:1fr!important}.evf-date{flex-direction:row!important;gap:10px!important;padding:12px 18px!important}.evf-body{padding:16px 18px!important}.evf-info{padding:14px 18px!important}}
+.evf-tag{align-self:flex-start;font-size:11.5px;font-weight:800;color:#c2410c;background:#fff1ea;border-radius:999px;padding:4px 11px}
+.evf-body h4{margin:2px 0 0;font-size:20px;font-weight:800;letter-spacing:-.045em;color:var(--ink)}
+.evf-body p{margin:0;font-size:13.5px;line-height:1.65;color:var(--mute);word-break:keep-all}
+.evf-co{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 14px;border-radius:12px;background:#fff7f2;border:1px solid #ffe0cf}
+.evf-co b{font-size:12.5px;font-weight:900;color:#c2410c;flex-shrink:0}
+.evf-co span{font-size:13px;color:var(--ink);word-break:keep-all;flex:1;min-width:220px}
+.evf-co strong{font-weight:800}
+.evf-co ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:5px;flex-basis:100%}
+.evf-co li{font-size:11px;font-weight:800;color:#b4441d;background:#fff;border:1px solid #ffd2bb;border-radius:6px;padding:2px 8px}
+.evf-topics{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.evf-topics li{font-size:12px;font-weight:700;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.evf-info{margin:0;padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:12px;background:var(--bg);border-left:1px solid var(--line)}
+.evf-info div{display:flex;gap:14px}
+.evf-info dt{flex-shrink:0;width:30px;font-size:12px;font-weight:800;color:#e0592b;padding-top:1px}
+.evf-info dd{margin:0;font-size:13.5px;font-weight:700;color:var(--ink);display:flex;flex-direction:column;gap:2px;word-break:keep-all}
+.evf-info dd small{font-size:11.5px;font-weight:600;color:var(--mute)}
+@media(max-width:900px){.evf{grid-template-columns:1fr}.evf-date{flex-direction:row;gap:10px;padding:14px 20px;justify-content:flex-start;align-items:baseline}.evf-date b{font-size:24px}.evf-date em{margin:0 0 0 auto}.evf-body{padding:20px}.evf-info{border-left:0;border-top:1px solid var(--line);padding:18px 20px}}
 .ev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .ev-card{display:flex;flex-direction:column;gap:10px;background:var(--surface,#fff);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;position:relative;overflow:hidden}
 .ev-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,#ff7a45,#ffb347)}
@@ -1227,11 +1266,25 @@ button:disabled{cursor:default;opacity:.55}
 .ev-card::before{display:none}
 .ev-card .ev-date{filter:none;opacity:1;color:var(--mute);background:var(--surface,#fff);border:1px solid var(--line)}
 .ev-card dl{background:color-mix(in srgb,var(--surface,#fff) 60%,transparent)}
-.ev-kicker{color:var(--mute)!important}
+.ev-kicker{color:#e0592b!important}
 .plan-a .iqt{display:none!important}
 .plan-old #vCourses,.plan-old #courseDetail,.plan-old #freeLibrary{display:none!important}
 .plan-old #oldClass{display:block!important}
 .tab[hidden]{display:none!important}
+.career-ep.is-planned{cursor:default;border-style:dashed!important;background:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--line) 30%,transparent) 10px 11px),var(--surface)!important;box-shadow:none!important;transform:none!important;user-select:none}
+.ep-plan-cover{position:relative;aspect-ratio:16/7;min-height:150px;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:22px 24px;overflow:hidden;filter:grayscale(1);opacity:.55;border-radius:inherit;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.ep-plan-cover.resume{background:linear-gradient(135deg,#6d28d9,#4c1d95)}
+.ep-plan-cover.interview{background:linear-gradient(135deg,#1d4ed8,#1e3a8a)}
+.ep-plan-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#fff}
+.ep-plan-label b{background:#d9f99d;color:#1f2937;border-radius:5px;padding:2px 7px;font-size:11.5px}
+.ep-plan-title{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:20px;font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1.3;max-width:70%}
+.ep-plan-title strong{background:#d9f99d;color:#1f2937;border-radius:5px;padding:1px 8px}
+.ep-plan-art{position:absolute;right:-30px;bottom:-40px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:0 0 0 26px rgba(255,255,255,.06)}
+.ep-plan-stamp{position:absolute;top:14px;right:14px;z-index:2;font-size:11.5px;font-weight:800;color:#374151;background:#fff;border-radius:999px;padding:4px 11px}
+.is-planned .ep-body h3{color:var(--mute)}
+.is-planned .ep-desc{color:var(--mute);opacity:.85}
+.tag.plan{color:var(--mute);background:var(--bg);border:1px dashed var(--line)}
+
 #oldFrame{display:block;width:100%;min-height:200px;border:0;background:transparent}
 .plan-a #basics>h2,.plan-a #basics>.sub{display:none!important}
 .iqb-rels{grid-column:2;grid-row:1 / span 2;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:4px 0;padding:6px 4px 6px 14px;border-left:1.5px dashed color-mix(in srgb,var(--course-ink) 35%,transparent)}
@@ -1947,8 +2000,8 @@ const CAREER_EP={
 const CAREER_CONFIRMED=new Set([2,3,4,5]);
 function renderMember(){
  const groups=[
-  {key:'resume',title:'이력서의 달인',desc:'AI 이력서 수정부터 경력 없이 경험을 살리는 법까지.',items:[2,3],label:'RESUME MASTER'},
-  {key:'interview',title:'면접의 달인',desc:'질문 의도를 읽고 내 경험으로 답하는 연습.',items:[4,5],label:'INTERVIEW MASTER'}
+  {key:'resume',title:'이력서의 달인',desc:'AI 이력서 수정부터 경력 없이 경험을 살리는 법까지.',items:[2,3],label:'RESUME MASTER',plan:{sm:'공대생 이력서',big:'글쓰기는 자신 없는데…',em:'설계 경험, 자소서에 어떻게 쓰지?',t:'공대생 자소서, 설계 프로젝트를 판단 과정으로 쓰기',d:'툴 사용법 대신 재료·구조를 왜 그렇게 정했는지, 설계 판단 과정을 이력서와 자소서에 녹여요.'}},
+  {key:'interview',title:'면접의 달인',desc:'질문 의도를 읽고 내 경험으로 답하는 연습.',items:[4,5],label:'INTERVIEW MASTER',plan:{sm:'직무기술서 읽는 법',big:'공고는 읽었는데…',em:'면접 질문은 어디서 나올까?',t:'직무기술서로 면접 예상 질문 뽑기',d:'공학계열 채용공고의 직무기술서를 읽고, 면접에서 나올 질문과 내 경험을 미리 연결해요.'}}
  ];
  $('memberGrid').innerHTML=groups.map((group,sectionIndex)=>`<section class="career-series ${group.key}" aria-labelledby="career-series-${sectionIndex}"><div class="career-series-heading"><div><span class="career-emblem" aria-hidden="true"><span>${group.title.replace('의 달인','의')}<b>달인</b></span></span><div><span class="career-series-eyebrow">${group.label}</span><h3 id="career-series-${sectionIndex}">${group.title}</h3><p>${group.desc}</p></div></div></div><div class="career-series-grid">${group.items.map((i,j)=>{const art=CAREER_EP_ART[i],g=GUIDES[i],ep=CAREER_EP[i]||{hook:g.t,bubble:'',steps:[]},hasVideo=Boolean((GUIDE_VIDEO_LINKS[i]||'').trim()),draft=!CAREER_CONFIRMED.has(i);return `<button class="card career-topic-card career-ep${draft?' is-draft':''}" ${draft?'disabled aria-disabled="true"':`data-guide="${i}"`} aria-label="${group.title} ${j+1}편, ${g.t}${draft?' (논의 후 작업 예정)':''}">
   ${art&&!draft?(i===3||i===5)?`<span class="ep-cover-editable">
@@ -1968,7 +2021,7 @@ function renderMember(){
   <h3>${draft?`<s>${g.t}</s>`:g.t}</h3><p class="ep-desc">${g.d}</p>
   ${ep.steps.length?`<ol class="ep-steps" aria-label="핵심 ${ep.steps.length}단계">${ep.steps.map((s,k)=>`<li><i>${k+1}</i>${s}</li>`).join('')}</ol>`:''}
   <div class="ep-foot"><span class="ep-formats"><span>영상</span><span>PDF</span><span>워크시트</span></span><span class="ep-status ${hasVideo?'on':''}">${hasVideo?'영상 공개':'영상 제작 중'}</span></div></div>
- </button>`}).join('')}</div></section>`).join('');
+ </button>`}).join('')}${group.plan?`<div class="card career-topic-card career-ep is-planned" aria-disabled="true" aria-label="${group.title} 3편, ${group.plan.t} (제작 예정)"><div class="ep-plan-cover ${group.key}" aria-hidden="true"><span class="ep-plan-stamp">제작 예정</span><span class="ep-plan-label"><b>EP.03</b>${group.plan.sm}</span><span class="ep-plan-title"><span>${group.plan.big}</span><strong>${group.plan.em}</strong></span><span class="ep-plan-art"></span></div><div class="ep-body"><div class="meta"><span class="tag plan">제작 예정 · 공학계열</span></div><h3>${group.plan.t}</h3><p class="ep-desc">${group.plan.d}</p></div></div>`:''}</div></section>`).join('');
 }
 
 let sel=0,user=null,pending=null;
@@ -2234,7 +2287,7 @@ function renderBasics(){
  const tracks=FREE_TRACKS.map(tr=>{const subs=tr.subs.map(sb=>({...sb,list:sb.ids.map(id=>CLASS_DATA.find(c=>c.id===id)).filter(Boolean)})).filter(sb=>sb.list.length);if(!subs.length)return'';
   return `<section class="ft-track" aria-label="${tr.t}"><div class="ft-th"><span class="ft-kicker">${tr.kicker}</span><b>${tr.t}</b><small>${tr.d}</small></div>${subs.map(sb=>`<div class="ft-sub"><div class="ft-steps">${sb.list.map(c=>card(c,++step)).join('')}</div></div>`).join('')}</section>`}).join('');
  const next=[].map(x=>`<div class="ft-sample ${x.color}" aria-disabled="true" aria-label="${x.t} (화면 구성용 예시, 미확정)"><div class="fsm-art"><strong aria-hidden="true">${x.icon}</strong></div><div class="fsm-body"><small>${x.eyebrow} · ${x.when}</small><b>${x.t}</b><p>${x.d}</p></div><span class="fsm-tag">예시 · 미확정</span></div>`).join('');
- $('bList').innerHTML=`${(()=>{const ids=FREE_ORDER.filter(id=>INTERVIEW_QS.some(x=>x.course===id));if(!ids.length)return'';if(!ids.includes(iqTab))iqTab=ids[0];const q1=(x)=>x.q;return `<section class="iqt" aria-label="강의별 면접 질문"><div class="iqt-head ft-th"><span class="ft-kicker">INTERVIEW</span><b>면접 질문, 직무 기초 강의로 준비하세요</b><span class="iq-ex">구성 예시</span><span class="iq-role"><button type="button" class="iq-jump" data-jump=".career-series.interview"><em>답변 스킬</em> 면접의 달인 ↑</button><i aria-hidden="true">·</i><button type="button" class="iq-jump" data-jump=".ft-list-h"><em>직무 지식</em> 강의 듣기 ↓</button></span></div><div class="iqb-grid">${(()=>{const bx=[];ids.forEach(id=>{const k=IQ_BOX[id]||id;let b=bx.find(x=>x.k===k);if(!b)bx.push(b={k,ids:[]});b.ids.push(id)});return bx.map(b=>{const cs=b.ids.map(id=>CLASS_DATA.find(k=>k.id===id)),c=cs[0],qs=b.ids.flatMap(id=>{const a=INTERVIEW_QS.filter(x=>x.course===id),f=a.find(x=>x.feat)||a[0];return[f,...a.filter(x=>x!==f)]}),f=qs[0];const head=`<div class="iqb-top">${IQ_TAG[c.id]?`<span class="iqb-tag">${IQ_TAG[c.id]}</span>`:''}<b>${f.src||IQ_TAB_NAME[c.id]||c.t}</b></div><ul class="iqb-qs">${qs.map(x=>`<li>${x.q}</li>`).join('')}</ul>`;if(cs.length===1)return `<div class="iqb ${c.color}">${head}<button type="button" class="iqb-how iqb-rel" data-course="${c.id}" aria-label="${c.t} 강의 듣고 준비하기"><span>강의 듣고 준비하세요</span><span class="iqb-pl" aria-hidden="true"><i></i></span><small class="iqb-cls">CLASS ${String(FREE_ORDER.indexOf(c.id)+1).padStart(2,'0')}</small><p>${c.t}</p></button></div>`;return `<div class="iqb iqb-multi ${c.color}">${head}<div class="iqb-rels"><span class="iqb-rels-h">강의 듣고 준비하세요</span><button type="button" class="iqb-solo" data-course="${c.id}" aria-label="${c.t} 강의 듣기"><span class="iqb-pl" aria-hidden="true"><i></i></span></button><span class="iqb-links">${cs.map(k=>`<button type="button" class="iqb-rel2" data-course="${k.id}" aria-label="${k.t} 강의 듣기"><b>${IQ_SHORT[k.id]||k.t}</b></button>`).join('')}</span></div></div>`}).join('')})()}</div></section>`})()}<div class="ft-list-h"><h3>직무별로 골라 듣는 기초 강의</h3><p>UX·UI 디자인부터 데이터까지, 실무에서 쓰는 개념과 도구를 직무별로 익혀요.</p></div><div class="ft-tracks">${tracks}</div>`+`<section class="ev" aria-label="One Day 취업 특강"><div class="ev-head"><span class="ft-kicker ev-kicker">EVENT</span><b>One Day 취업 특강</b><span class="iq-ex">구성 예시</span><small>하루에 끝내는 취업 실전 특강 · 일정과 내용은 확정 전이에요.</small></div><div class="ev-grid">${ONEDAY_EVENTS.map(e=>`<article class="ev-card" aria-disabled="true"><div class="ev-top"><span class="ev-od">ONE DAY<em>${e.no}</em></span><span class="ev-date">예시 · 미확정</span></div><h4>${e.t}</h4><p>${e.d}</p><dl><div><dt>대상</dt><dd>${e.who}</dd></div><div><dt>연결</dt><dd>${e.link}</dd></div></dl><button type="button" class="ev-btn" disabled>신청 오픈 예정</button></article>`).join('')}</div></section>`+(next?`<div class="ft-next"><div class="ft-next-head"><span class="ft-kicker">COMING SOON</span><b>다음 무료 클래스 자리</b><small>화면 구성용 예시입니다 · 과정명·일정 미확정</small></div><div class="ft-samples">${next}</div></div>`:'');
+ $('bList').innerHTML=`${(()=>{const ids=FREE_ORDER.filter(id=>INTERVIEW_QS.some(x=>x.course===id));if(!ids.length)return'';if(!ids.includes(iqTab))iqTab=ids[0];const q1=(x)=>x.q;return `<section class="iqt" aria-label="강의별 면접 질문"><div class="iqt-head ft-th"><span class="ft-kicker">INTERVIEW</span><b>면접 질문, 직무 기초 강의로 준비하세요</b><span class="iq-ex">구성 예시</span><span class="iq-role"><button type="button" class="iq-jump" data-jump=".career-series.interview"><em>답변 스킬</em> 면접의 달인 ↑</button><i aria-hidden="true">·</i><button type="button" class="iq-jump" data-jump=".ft-list-h"><em>직무 지식</em> 강의 듣기 ↓</button></span></div><div class="iqb-grid">${(()=>{const bx=[];ids.forEach(id=>{const k=IQ_BOX[id]||id;let b=bx.find(x=>x.k===k);if(!b)bx.push(b={k,ids:[]});b.ids.push(id)});return bx.map(b=>{const cs=b.ids.map(id=>CLASS_DATA.find(k=>k.id===id)),c=cs[0],qs=b.ids.flatMap(id=>{const a=INTERVIEW_QS.filter(x=>x.course===id),f=a.find(x=>x.feat)||a[0];return[f,...a.filter(x=>x!==f)]}),f=qs[0];const head=`<div class="iqb-top">${IQ_TAG[c.id]?`<span class="iqb-tag">${IQ_TAG[c.id]}</span>`:''}<b>${f.src||IQ_TAB_NAME[c.id]||c.t}</b></div><ul class="iqb-qs">${qs.map(x=>`<li>${x.q}</li>`).join('')}</ul>`;if(cs.length===1)return `<div class="iqb ${c.color}">${head}<button type="button" class="iqb-how iqb-rel" data-course="${c.id}" aria-label="${c.t} 강의 듣고 준비하기"><span>강의 듣고 준비하세요</span><span class="iqb-pl" aria-hidden="true"><i></i></span><small class="iqb-cls">CLASS ${String(FREE_ORDER.indexOf(c.id)+1).padStart(2,'0')}</small><p>${c.t}</p></button></div>`;return `<div class="iqb iqb-multi ${c.color}">${head}<div class="iqb-rels"><span class="iqb-rels-h">강의 듣고 준비하세요</span><button type="button" class="iqb-solo" data-course="${c.id}" aria-label="${c.t} 강의 듣기"><span class="iqb-pl" aria-hidden="true"><i></i></span></button><span class="iqb-links">${cs.map(k=>`<button type="button" class="iqb-rel2" data-course="${k.id}" aria-label="${k.t} 강의 듣기"><b>${IQ_SHORT[k.id]||k.t}</b></button>`).join('')}</span></div></div>`}).join('')})()}</div></section>`})()}<div class="ft-list-h"><h3>직무별로 골라 듣는 기초 강의</h3><p>UX·UI 디자인부터 데이터까지, 실무에서 쓰는 개념과 도구를 직무별로 익혀요.</p></div><div class="ft-tracks">${tracks}</div>`+`<section class="ev" aria-label="선배와의 만남"><div class="ev-head"><span class="ft-kicker ev-kicker">EVENT</span><b>One Day 취업 특강</b><small>먼저 취업한 선배에게 직접 듣는 취업 이야기</small></div><article class="evf"><div class="evf-date"><small>2026</small><b>11.27</b><span>금요일 오후 2시</span><em>오프라인</em></div><div class="evf-body"><span class="evf-tag">선배와의 만남</span><h4>싸이맥스 합격 선배들이 알려주는 취업 노하우 특강</h4><p class="evf-co"><b>싸이맥스는?</b> 반도체 웨이퍼 이송장비·로봇을 만드는 코스닥 상장 반도체 장비 기업</p><p>싸이맥스에 취업한 선배 2명이 서류·면접 준비 경험을 들려주고, 궁금한 점에 직접 답해요.</p></div><dl class="evf-info"><div><dt>일시</dt><dd>2026년 11월 27일 (금)<small>오후 2시</small></dd></div><div><dt>장소</dt><dd>이젠아카데미DX교육센터<small>강남캠퍼스 · 오프라인</small></dd></div><div><dt>연사</dt><dd>싸이맥스 취업 수료생 2명</dd></div><div><dt>대상</dt><dd>취업 준비생</dd></div></dl></article></section>`+(next?`<div class="ft-next"><div class="ft-next-head"><span class="ft-kicker">COMING SOON</span><b>다음 무료 클래스 자리</b><small>화면 구성용 예시입니다 · 과정명·일정 미확정</small></div><div class="ft-samples">${next}</div></div>`:'');
 }
 var curCourse=null;
 function markCourseTile(){document.querySelectorAll('.course-tile').forEach(t=>t.setAttribute('aria-pressed',String(t.dataset.course===curCourse)));placeNotch()}
@@ -2475,6 +2528,17 @@ window.addEventListener('load',()=>{if(location.hash==='#member')setTimeout(()=>
 .ns-links i{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-style:normal;font-size:18px;color:color-mix(in srgb,var(--surface) 70%,transparent);transition:transform .15s}
 .ns-links a:hover i{transform:translate(2px,calc(-50% - 2px))}
 @media(max-width:760px){.ns-links{grid-template-columns:1fr;padding-top:16px}}
+section.next-step{margin-top:28px!important;padding:20px 26px!important;gap:6px 24px!important}
+section.next-step h3{margin:4px 0 3px!important;font-size:19px!important}
+section.next-step>div>p{font-size:13px!important}
+.next-step-btns a{padding:10px 16px!important;font-size:13.5px!important}
+.ns-links{padding-top:12px!important;margin-top:6px;gap:8px!important}
+.ns-links a{padding:10px 40px 10px 14px!important;gap:1px!important;border-radius:12px!important}
+.ns-links small{font-size:9.5px!important}
+.ns-links b{font-size:14px!important}
+.ns-links span{font-size:12px!important}
+@media(max-width:760px){section.next-step{padding:20px 18px!important}}
+
 .next-step-btns a{display:inline-flex;align-items:center;gap:6px;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
 .next-step-btns .p{background:var(--surface);color:var(--ink)}
 .next-step-btns .s{border:1px solid color-mix(in srgb,var(--surface) 40%,transparent);color:var(--surface)}
@@ -2491,7 +2555,7 @@ window.addEventListener('load',()=>{if(location.hash==='#member')setTimeout(()=>
   vc.parentNode.insertBefore(br,vc);
   // 마지막 단계: 정규과정·상담 안내 (링크 주소는 실제 페이지로 교체 필요)
   const ns=document.createElement('section');ns.className='next-step';ns.setAttribute('aria-label','다음 단계');
-  ns.innerHTML='<div><span class="ft-kicker">NEXT STEP</span><h3>기초를 마쳤다면, 포트폴리오까지 완성해 보세요</h3><p>이젠아카데미 정규과정에서 실무 프로젝트로 포트폴리오를 만들고, 면접까지 함께 준비해요.</p></div><div class="next-step-btns"><a class="p" href="#" data-todo="정규과정 페이지 주소">정규과정 살펴보기 →</a><a class="s" href="https://www.ezenac.co.kr/ezen/counsel/counsel_create.asp" target="_blank" rel="noopener">상담 신청</a></div><div class="ns-links"><a href="https://www.ezenac.co.kr/ezen/portfolio/portfolio_list.asp" target="_blank" rel="noopener"><small>PORTFOLIO</small><b>수강생 포트폴리오</b><span>정규과정에서 완성한 실제 작품을 둘러보세요.</span><i aria-hidden="true">↗</i></a><a href="https://www.ezenac.co.kr/ezen/community/review.asp" target="_blank" rel="noopener"><small>REVIEW</small><b>수강생 교육후기</b><span>수료생이 직접 쓴 수업과 취업 이야기를 읽어 보세요.</span><i aria-hidden="true">↗</i></a></div>';
+  ns.innerHTML='<div><span class="ft-kicker">NEXT STEP</span><h3>기초는 무료 클래스로, 포트폴리오와 취업은 정규과정에서</h3><p>이젠아카데미 정규과정에서 현업 기준의 실무 프로젝트로 포트폴리오를 완성하고, 이력서·모의면접까지 함께 준비해요.</p></div><div class="next-step-btns"><a class="p" href="https://www.ezenac.co.kr/ezen/counsel/counsel_create.asp" target="_blank" rel="noopener">정규과정 상담받기 →</a></div><div class="ns-links"><a href="https://www.ezenac.co.kr/ezen/portfolio/portfolio_list.asp" target="_blank" rel="noopener"><small>PORTFOLIO</small><b>수강생 포트폴리오</b><span>정규과정에서 완성한 실제 작품을 둘러보세요.</span><i aria-hidden="true">↗</i></a><a href="https://www.ezenac.co.kr/ezen/community/photostory_view.asp?pg=1&amp;idx=113" target="_blank" rel="noopener"><small>CAREER FOCUS</small><b>카티아 자동차 설계 수료생 취업 성공 인터뷰</b><span>공대생 선배가 서류와 면접을 어떻게 준비했는지 확인해 보세요.</span><i aria-hidden="true">↗</i></a></div>';
   vc.appendChild(ns);
  }
  document.addEventListener('click',e=>{const t=e.target.closest('[data-jump]');if(!t)return;const el=document.querySelector(t.dataset.jump);if(!el)return;e.preventDefault();const th=(document.querySelector('.tabs')?.offsetHeight||56);window.scrollTo({top:el.getBoundingClientRect().top+scrollY-th-24,behavior:'smooth'})});
