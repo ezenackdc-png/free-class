@@ -2318,9 +2318,9 @@ CLASS_DATA[1].groups=CRS.map((c,j)=>({title:`0${j+1} · ${c.t}`,note:`${c.c.leng
 // 가이드20: 기존 UX 단일 과정의 두 챕터를 각각 독립 무료 강의로 분리합니다.
 // 원본 파트의 제목, 시간, Kollus 주소는 변경하지 않습니다.
 // 파이썬 1챕터 목차: 영상이 올라가면 각 파트의 url과 시간('m:ss')을 채웁니다.
-{const PY_URLS=['https://v.kr.kollus.com/rG7Ivn7S','https://v.kr.kollus.com/VLm6vn8M','https://v.kr.kollus.com/Ckg9vn7X','https://v.kr.kollus.com/cFkAvn7I','https://v.kr.kollus.com/u4UJvn7Q','https://v.kr.kollus.com/u4UJvn7Q','https://v.kr.kollus.com/NX3bvn9X','https://v.kr.kollus.com/IV9Tvndg','https://v.kr.kollus.com/PchsvnJO','https://v.kr.kollus.com/zvCHvnJC','https://v.kr.kollus.com/zAxUvnJR'];
+{const PY_URLS=['https://v.kr.kollus.com/rG7Ivn7S','https://v.kr.kollus.com/VLm6vn8M','https://v.kr.kollus.com/Ckg9vn7X','https://v.kr.kollus.com/cFkAvn7I','https://v.kr.kollus.com/u4UJvn7Q','https://v.kr.kollus.com/5riPvn9R','https://v.kr.kollus.com/NX3bvn9X','https://v.kr.kollus.com/IV9Tvndg','https://v.kr.kollus.com/PchsvnJO','https://v.kr.kollus.com/zvCHvnJC','https://v.kr.kollus.com/zAxUvnJR'];
 // 파이썬 파트별 재생시간 ('m:ss'). 채우면 목록·카드에 시간과 총 분량이 자동으로 표시됩니다.
-const PY_DUR=['','','','','','','','','','',''];
+const PY_DUR=['4:24','7:55','4:34','3:51','3:40','4:31','4:10','7:31','8:08','8:05','9:26'];
 const PY=CLASS_DATA.find(c=>c.id==='python');if(PY){const P1=[
  ['파이썬 언어의 특징','파이썬이 왜 첫 언어로 많이 쓰이는지, 쉬운 문법과 넓은 활용 분야를 살펴봐요.'],
  ['파이썬 설치 및 실행','파이썬을 설치하고 첫 코드를 직접 실행해 결과를 확인해요.'],
@@ -2335,7 +2335,7 @@ const PY=CLASS_DATA.find(c=>c.id==='python');if(PY){const P1=[
  ['조건문 if·elif·else','조건에 따라 다른 코드가 실행되도록 if·elif·else 조건문을 직접 작성해 봐요.']];
  PY.groups=[{title:'01 · 파이썬 첫걸음: 설치부터 조건문까지',note:'11파트',chapter:true,rows:P1.map((r,i)=>[r[0],r[1],PY_DUR[i]||'',{number:i+1,url:PY_URLS[i]||null}])}];
  const pySec=PY_DUR.reduce((a,d)=>{const m=/^(\d+):(\d{2})$/.exec(d||'');return m?a+(+m[1])*60+(+m[2]):a},0),pyAll=PY_DUR.every(d=>/^\d+:\d{2}$/.test(d||''));
- PY.meta=pyAll?`11파트 · 약 ${Math.round(pySec/60)}분`:'1챕터 · 11파트';
+ const pyMin=Math.round(pySec/60);PY.meta=pyAll?`11파트 · 약 ${pyMin>=60?Math.floor(pyMin/60)+'시간 '+(pyMin%60?pyMin%60+'분':''):pyMin+'분'}`:'1챕터 · 11파트';
  if(pyAll)PY.groups[0].note=`11파트 · ${Math.floor(pySec/60)}:${String(pySec%60).padStart(2,'0')}`;}}
 const ORIGINAL_UX=CLASS_DATA.shift();
 const UX_ONE={...ORIGINAL_UX,id:'ux-double',t:'UX 프로덕트 디자인과 더블 다이아몬드',icon:'UX',eyebrow:'UX DESIGN · CLASS 01',desc:'사용자의 문제를 발견하고, 더블 다이아몬드 4단계와 ChatGPT 실습으로 서비스 아이디어를 구체화해요.',meta:'10파트 · 약 38분',status:'UX 입문 · 문제 해결 프로세스',summary:'프로덕트와 멘탈 모델을 이해하고 더블 다이아몬드의 발견·정의·개발·전달을 사례와 실습으로 익힙니다.',audience:['처음 UX 디자인을 배우는 분','더블 다이아몬드를 실제 사례로 이해하고 싶은 분','ChatGPT로 서비스 아이디어를 구체화해 보고 싶은 분'],outcomes:['프로덕트와 사용자의 멘탈 모델을 설명해요.','더블 다이아몬드의 4단계를 이해해요.','ChatGPT로 약속 조율 앱 아이디어를 정리해요.'],groups:[ORIGINAL_UX.groups[0]],nextId:'ux-laws',nextTitle:'UX·UI 기본 원리와 UX 법칙'};
